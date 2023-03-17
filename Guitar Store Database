@@ -1,0 +1,36 @@
+-- Create a guitar store database
+
+CREATE TABLE guitars (id INTEGER PRIMARY KEY ,name TEXT, color TEXT, cost INTEGER, rating INTEGER);
+INSERT INTO guitars VALUES(1, "strat", "red", 400, 8);
+INSERT INTO guitars VALUES(2, "strat", "yellow", 600, 1);
+INSERT INTO guitars VALUES(3, "strat", "red", 100, 4);
+INSERT INTO guitars VALUES(4, "strat", "green", 500, 2);
+INSERT INTO guitars VALUES(5, "tele", "yellow", 900, 7);
+INSERT INTO guitars VALUES(6, "tele", "blue", 400, 6);
+INSERT INTO guitars VALUES(7, "tele", "orange", 500, 9);
+INSERT INTO guitars VALUES(8, "mustang", "blue", 300, 9);
+INSERT INTO guitars VALUES(9, "mustang", "red", 400, 4);
+INSERT INTO guitars VALUES(10, "mustang", "black", 500, 6);
+INSERT INTO guitars VALUES(11, "jaguar", "yellow", 600, 5);
+INSERT INTO guitars VALUES(12, "jaguar", "red", 200, 8);
+INSERT INTO guitars VALUES(13, "jaguar", "white", 500, 8);
+INSERT INTO guitars VALUES(14, "jaguar", "black", 100, 8);
+INSERT INTO guitars VALUES(15, "jaguar", "sunburst", 700, 8);
+
+-- Display the databse ordered by cost
+
+SELECT * FROM guitars ORDER BY cost;
+
+-- What are the 10 top rated guitars?
+
+SELECT name, price, rating 
+FROM guitars 
+ORDER BY rating desc
+LIMIT 10;
+
+-- What is the average price of a jaguar?
+
+SELECT name, AVG(price)
+FROM guitars
+WHERE name IS "jaguar";
+
